@@ -56,7 +56,7 @@ public class Main<m> {
             default:
                 throw new IllegalStateException("Unexpected value: " + chArray[m]);
         }
-        if (res3 < 0 || res3 > 3999) {
+        if ((res3 < 0 || res3 > 3999) && t1>0) {
             System.out.println("Ошибка. В римском исчислении нет отрицательных чисел и нет чисел больше 3999");
             System.exit(0);
 
@@ -64,11 +64,15 @@ public class Main<m> {
 
         int number_input = res3;
         String roman_numeral_output = transform_number_to_roman_numeral(number_input);
-        if (res3 == 0) {
-            System.out.println("Результат в арабском представлении: " + number_input + " результат в римском представлении ноль не представлен");
+        if (res3 == 0 && t1>0) {
+            System.out.println("В римском представлении ноль не представлен");
 
-        } else {
-            System.out.println("Результат в арабском представлении: " + number_input + " результат в римском представлении:" + roman_numeral_output);
+        }
+        if (res3 > 0 && res3<=3999 && t1>0) {
+            System.out.println("Результат в римском представлении:" + roman_numeral_output);
+        }
+        if (t2>0) {
+            System.out.println("Результат в арабском представлении: " + number_input);
         }
     }
 
